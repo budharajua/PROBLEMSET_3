@@ -1,0 +1,22 @@
+#PS3 PROBLEM 1 SOLUTION
+fhand = open("/ufrc/zoo6927/share/Class_Files/data/CO-OPS__8729108__wl.csv")
+largest = None
+for line in fhand:
+    line = line.rstrip()
+    delimiter = ","
+    words = line.split(delimiter)
+    #print(words[1])
+    if largest is None or words[1]>largest:
+        largest = words[1]
+print("Highest Water Level:", largest)
+
+#PS3 PROBLEM 2 SOLUTION
+df=pd.read_csv("/ufrc/zoo6927/share/Class_Files/data/CO-OPS__8729108__wl.csv")
+df.loc[df[' Water Level'].idxmax()]
+
+#PS3 PROBLEM 3 SOLUTION
+df= pd.read_csv("/ufrc/zoo6927/share/Class_Files/data/CO-OPS__8729108__wl.csv")
+df["Water_Level_Difference"] = df[" Water Level"] - df[" Water Level"].shift(-1)
+df.loc[df["Water_Level_Difference"].idxmax()]
+
+#PS3 PROBLEM 4 - UNDERGRAD
